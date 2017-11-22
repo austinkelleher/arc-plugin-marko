@@ -1,0 +1,35 @@
+{
+  "name": "arc-plugin-marko",
+  "version": "0.1.0",
+  "description": "A plugin to use Marko with Architect (arc.codes)",
+  "main": "arc-plugin-marko.js",
+  "scripts": {
+    "prettier": "prettier **/*.js --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/austinkelleher/arc-plugin-marko.git"
+  },
+  "keywords": [
+    "marko",
+    "arc",
+    "architect",
+    "aws",
+    "lambda"
+  ],
+  "author": "Austin Kelleher <a@alk.im>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/austinkelleher/arc-plugin-marko/issues"
+  },
+  "homepage": "https://github.com/austinkelleher/arc-plugin-marko#readme",
+  "dependencies": {
+    "@marko/compile": "^1.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^4.11.0",
+    "eslint-config-prettier": "^2.8.0",
+    "eslint-plugin-prettier": "^2.3.1",
+    "prettier": "^1.8.2"
+  }
+}

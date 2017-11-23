@@ -1,9 +1,14 @@
+const path = require("path");
 const markoCompile = require("@marko/compile");
 const markoPrebuild = require("@marko/prebuild");
-const path = require("path");
+const getDefaultBuildConfig = require('./getDefaultBuildConfig')
 const ok = require("assert").ok;
 
-function prebuildPage(page, config) {
+function prebuildPage(page, config, extend) {
+  if (extend) {
+    config = Object.assign({}, getDefaultBuildConfig(path.dirname(page)), config)
+  }
+
   return markoPrebuild.run({
     pages: [page],
     config
@@ -29,14 +34,22 @@ module.exports = {
       pluginConfig,
       '"pages" and "config" are required properties to use arc-plugin-marko'
     );
+
     let { pages, config: buildConfig, bucket } = pluginConfig;
 
     ok(pages, '"pages" is a required property to use arc-plugin-marko');
-    ok(buildConfig, '"config" is a required property to use arc-plugin-marko');
 
-    buildConfig = require(require.resolve(
-      path.resolve(process.cwd(), buildConfig)
-    ));
+    const cwd = process.cwd();
+    let extendDefault = false
+
+    if (buildConfig) {
+      buildConfig = require(require.resolve(
+        path.resolve(cwd, buildConfig)
+      ));
+    } else {
+      buildConfig = {}
+      extendDefault = true
+    }
 
     if (!buildConfig.plugins) {
       buildConfig.plugins = ["lasso-marko"];
@@ -56,7 +69,6 @@ module.exports = {
       });
     }
 
-    const cwd = process.cwd();
     const fileGlob = path.resolve(cwd, "./src/**/*.marko");
 
     await markoCompile.run({
@@ -67,10 +79,10 @@ module.exports = {
 
     if (Array.isArray(pages)) {
       for (const page of pages) {
-        await prebuildPage(page, buildConfig);
+        await prebuildPage(page, buildConfig, extendDefault);
       }
     } else {
-      await prebuildPage(pages, buildConfig);
+      await prebuildPage(pages, buildConfig, extendDefault);
     }
   }
 };

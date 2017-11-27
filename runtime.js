@@ -23,7 +23,6 @@ let lassoConfigured = false
 
 exports.run = function ({ template, buildConfig, data, onDone, onError }) {
   if (!lassoConfigured) {
-    console.log('CWD!!!!: ', process.cwd())
     require('lasso').configure(buildConfig || getDefaultBuildConfig(process.cwd()))
     lassoConfigured = true
   }

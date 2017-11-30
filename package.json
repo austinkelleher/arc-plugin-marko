@@ -36,6 +36,7 @@
   "dependencies": {
     "@marko/compile": "^1.0.3",
     "@marko/prebuild": "0.0.2",
+    "@lasso/marko-taglib": "github:lasso-js/lasso-marko-taglib#e5beed39e6b487f825cf2775f779fa186d09e3ca",
     "lasso": "^3.0.1-1",
     "lasso-marko": "2.3.2-0",
     "lasso-s3-writer": "^0.1.1"

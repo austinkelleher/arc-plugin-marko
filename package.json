@@ -38,6 +38,6 @@
     "@marko/prebuild": "0.0.2",
     "lasso": "^3.0.1-1",
     "lasso-marko": "2.3.2-0",
-    "lasso-s3-writer": "0.1.0"
+    "lasso-s3-writer": "^0.1.1"
   }
 }

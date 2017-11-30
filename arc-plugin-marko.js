@@ -43,7 +43,7 @@ async function build(config) {
 
   ok(pages, '"pages" is a required property to use arc-plugin-marko');
 
-  markoCompiler.registerTag("@lasso/marko-taglib/marko.json");
+  markoCompiler.registerTaglib("@lasso/marko-taglib/marko.json");
 
   const cwd = process.cwd();
   let extendDefault = false;

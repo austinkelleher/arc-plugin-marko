@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/austinkelleher/arc-plugin-marko#readme",
   "peerDependencies": {
-    "@architect/functions": ">=1.6.2",
+    "@architect/functions": ">=2.1.0",
     "marko": "4.5.3-2"
   },
   "devDependencies": {
@@ -36,7 +36,7 @@
   "dependencies": {
     "@marko/compile": "^1.0.3",
     "@marko/prebuild": "0.0.2",
-    "lasso": "3.0.1-0",
+    "lasso": "^3.0.1-1",
     "lasso-marko": "2.3.2-0",
     "lasso-s3-writer": "0.1.0"
   }

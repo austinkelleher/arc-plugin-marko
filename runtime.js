@@ -23,7 +23,11 @@ let lassoConfigured = false
 
 exports.run = function ({ template, buildConfig, data, onDone, onError }) {
   if (!lassoConfigured) {
-    require('lasso').configure(buildConfig || getDefaultBuildConfig(process.cwd()))
+    const config = Object.assign({}, buildConfig || getDefaultBuildConfig(process.cwd()), {
+      loadPrebuild: true
+    })
+
+    require('lasso').configure(config)
     lassoConfigured = true
   }
   return arc.html.get(route(template, data, onDone, onError))

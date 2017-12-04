@@ -1,11 +1,12 @@
 const path = require("path");
+const fs = require("fs-extra");
 const markoCompiler = require("marko/compiler");
 const markoCompile = require("@marko/compile");
 const markoPrebuild = require("@marko/prebuild");
 const getDefaultBuildConfig = require("./getDefaultBuildConfig");
 const ok = require("assert").ok;
 
-function prebuildPage(page, config, extend) {
+async function prebuildPage(page, config, extend) {
   if (extend) {
     config = Object.assign(
       {},
@@ -13,6 +14,8 @@ function prebuildPage(page, config, extend) {
       config
     );
   }
+
+  await fs.remove(config.cacheDir);
 
   return markoPrebuild.run({
     pages: [page],

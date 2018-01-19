@@ -25,7 +25,7 @@
   "homepage": "https://github.com/austinkelleher/arc-plugin-marko#readme",
   "peerDependencies": {
     "@architect/functions": ">=2.1.0",
-    "marko": "4.5.3-2"
+    "marko": ">=4.7.0"
   },
   "devDependencies": {
     "eslint": "^4.11.0",
@@ -34,12 +34,12 @@
     "prettier": "^1.8.2"
   },
   "dependencies": {
-    "@lasso/marko-taglib": "github:lasso-js/lasso-marko-taglib#e5beed39e6b487f825cf2775f779fa186d09e3ca",
+    "@lasso/marko-taglib": "github:lasso-js/lasso-marko-taglib#4cf68ca85f38b15a535d4845aec0c1c5f3c7936e",
     "@marko/compile": "^1.0.3",
     "@marko/prebuild": "0.0.2",
     "fs-extra": "^4.0.2",
-    "lasso": "^3.0.1-1",
-    "lasso-marko": "2.3.2-0",
+    "lasso": "^3.1.2",
+    "lasso-marko": "^2.4.0",
     "lasso-s3-writer": "^0.1.1"
   }
 }
